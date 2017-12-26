@@ -56,7 +56,6 @@ class TasksViewController: UIViewController, BindableType {
             if let strongSelf = self {
                 cell.configure(with: item, action: strongSelf.viewModel.onToggle(task: item))
             }
-
             return cell
         }
     }
