@@ -27,6 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+
+    let service = TaskService()
+    let sceneCoordinator = SceneCoordinator(window: window!)
+
+    let tastViewModel = TasksViewModel(taskService: service, coordinator: sceneCoordinator)
+    let firstScene = Scene.tasks(tastViewModel)
+
+    sceneCoordinator.transition(to: firstScene, type: .root)
+
     return true
   }
 }
